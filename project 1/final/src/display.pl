@@ -33,6 +33,7 @@ initial([
 
 /* Displays the current game state */
 display_game(Board, Player):-
+    cls,
     nl,
     write(Player),
     write(' is playing'),

@@ -4,7 +4,8 @@ main_menu :-
     main_menu_get_option.
 
 menu_input(1) :-
-    start_game('P', 'P').
+    start_game('P', 'P'),
+    main_menu.
 
 menu_input(2) :-
     write('option 2\n').
@@ -15,7 +16,7 @@ menu_input(3) :-
 menu_input(0) :-
     write('done\n').
 
-menu_input(other) :-
+menu_input(_Other) :-
     write('\n error: Invalid option \n'),
     main_menu_get_option.
 
