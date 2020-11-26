@@ -14,16 +14,12 @@ menu_input(3) :-
     write('option 3\n').
 
 menu_input(0) :-
-    write('done\n').
+    write('done\n'),
+    halt.
 
 menu_input(_Other) :-
     write('\n error: Invalid option \n'),
     main_menu_get_option.
-
-main_menu_get_option :-
-    write('select menu option: '),
-    read(Input),
-    menu_input(Input).
 
 
 print_main_menu :-
@@ -35,7 +31,7 @@ print_main_menu :-
     write('|                                                                       |'),nl,
     write('|                                                                       |'),nl,
     write('|                           Nuno Miguel Marques                         |'),nl,
-    write('|                             Margarida cosme                           |'),nl,
+    write('|                             Margarida Cosme                           |'),nl,
     write('|                                                                       |'),nl,
     write('|                               Main Menu                               |'),nl,
     write('|                                                                       |'),nl,

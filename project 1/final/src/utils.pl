@@ -41,3 +41,11 @@ char_index('G',6).
 char_index('H',7).
 char_index('I',8).
 char_index('J',9).
+
+is_cell_empty(Board, Row, Column) :-
+        get_matrix_element(Board, Row, Column, Value),
+        Value == empty.
+
+between(Num, MinN, MaxN) :- 
+        Num >= MinN, 
+        Num =< MaxN.
