@@ -12,7 +12,7 @@ In order to run our game follow the following steps:
 
 - Install and run SICStus Prolog.
 - Go to File > Working Directory and navigate to the *src* folder where in the *final* folder of project 1.
-- Go to File > Consult and select the file [*squ.pl*](/project\1/final/src/squ.pl).
+- Go to File > Consult and select the file [*squ.pl*](/project1/final/src/squ.pl).
 - **Alternatively:** run `consult('path\to\squ.pl').`
 - Type `main_menu.` into the SICStus console and the game will start.
 
@@ -189,7 +189,7 @@ In order to run our game follow the following steps:
 
 ## Game State Visualization
 
-**Display - [display.pl](/project\1/final/src/display.pl)**
+**Display - [display.pl](/project1/final/src/display.pl)**
 
 To display the board we used the predicates ``display_game(Board, Player)``, ``printMatrix([], N)`` and ``printLine([])``. ``display_game(Board, Player)`` prints a row of the board, by calling ``printMatrix([], 6)``  on every iteration - ``printMatrix([], 6)`` will then make use of predicate ``printLine([])``, which recursively calls itself, printing the Head of the given list in every iteration.
 
@@ -197,17 +197,17 @@ Furthermore, we use "r" and "b" to represent, respectively, Player 1 and Player 
 
 - Initial State:
 
-  ![Initial state](project\1/final/img/initial.jpg)
+  ![Initial state](project1/final/img/initial.jpg)
   
   - Intermediate State:
 
-  ![Initial state](project\1/final/img/intermediate.jpg)
+  ![Initial state](project1/final/img/intermediate.jpg)
   
   - Final State:
 
-  ![Initial state](project\1/final/img/final.jpg)
+  ![Initial state](project1/final/img/final.jpg)
 
-**Menus - [menu.pl](project\1/menus.pl)**
+**Menus - [menu.pl](project1/menus.pl)**
 
 When running the game, the user is prompted to a **MainMenu**, where they can select which game mode they want to play. The available modes are:
 
@@ -215,11 +215,11 @@ When running the game, the user is prompted to a **MainMenu**, where they can se
 - Player vs Computer
 - Computer vs Computer
 
-  ![Main Menu](project\1/final/img/menu.jpg)
+  ![Main Menu](project1/final/img/menu.jpg)
 
 If the player decides to select a game mode which involves a Computer they are asked about the difficulty of the given Computer, which can either be Easy or Hard.
 
-  ![Main Menu 2](project\1/img/mainmenu2.png)
+  ![Main Menu 2](project1/img/mainmenu2.png)
 
 Furthermore, there is also a **Pause Menu**, which can be prompted whilst in game, by typing either 'pause', p or 'P', when asked for either a column or a row. The available options for the Pause Menu are:
 
@@ -229,9 +229,9 @@ Furthermore, there is also a **Pause Menu**, which can be prompted whilst in gam
 
 If the player decides to resume the game, it continues normally from when it was paused. On the other hand, if the player decides to return to the Main Menu, the game loop is interrupted and the player is prompted to the Main Menu. Finally, if the players chooses to exit the game the execution of the game is aborted.
 
-  ![Main Menu 2](project\1/img/pausemenu.png)
+  ![Main Menu 2](project1/img/pausemenu.png)
 
-## Valid moves - [logic.pl](project\1/ai.pl)
+## Valid moves - [logic.pl](project1/ai.pl)
 
 To obtain a list of all possible moves for a given Player, we implemented the predicate ``valid_moves(+GameState, +Player, -ListOfMoves)``. This gives (using the findall predicate from library lists) a list that includes all possible moves (Row and Column).
 Regarding user input/move verification, we implemented the predicate ``readInput``. This reads user input and verifies if it's valid, this is, if the position is part of the board and if that position is not already occupied by another piece.
@@ -239,7 +239,7 @@ Additionally, regarding computer input/move generation, we implemented the predi
 
 
 
-## Move execution - [game.pl](project\1/game.pl) & [utils.pl](Proj1/utils.pl)
+## Move execution - [game.pl](project1/game.pl) & [utils.pl](project1/utils.pl)
 
 The execution of every (human and machine) move is completed using the predicate ``move(+GameState, +Move, -NewGameState)``. This predicate receives a list (Move) with the format ``[Row, Col, Player]`` and applies the move to the gamestate accordingly (using ``replaceInMatrix`` and ``repulsions`` predicates).
 However, since the verification/generation is different depending wether it's a human or the machine playing, the predicate move is called in the predicate ``playMove``, which also generates the move accordingly, using the predicates described in the section above (it also manipulates the value of ``Flag`` in order to deal with the 'Return to Main Menu' option in the Pause Menu).
@@ -247,7 +247,7 @@ However, since the verification/generation is different depending wether it's a 
 
 
 
-## Game Over - [play.pl](project\1/game.pl) & [utils.pl](Proj1/utils.pl)
+## Game Over - [play.pl](project1/game.pl) & [utils.pl](project1/utils.pl)
 
 At the end of each turn, the predicate ``checkVictory`` is called. ``checkVictory`` processes the Pause Menu input and calls (if necessary) the predicate ``game_over(+GameState, -Winner)``, which iterates the entire board and verifies if any victory requirement has been met. If so, the predicate will succeed and unify Winner with the victor, otherwise it will fail, continuing the gameloop.
 In order to check the victory requirements the following predicates are used:
@@ -256,7 +256,7 @@ In order to check the victory requirements the following predicates are used:
 
 
 
-## Board Evaluation - [utils.pl](project\1/utils.pl) & [ai.pl](project 1/ai.pl)
+## Board Evaluation - [utils.pl](project1/utils.pl) & [ai.pl](project1/ai.pl)
 
 Gekitai is a fairly recent game. This being said, the game is still "unresolved", which required us to implement a system that evaluates board states for each player on our own. This system consists of the following:
 - A board with 3 in a row or 8 pieces on board for a given player(victory) adds to the evaluation +100 points;
@@ -270,7 +270,7 @@ The predicate that computes this evaluation is ``value(+GameState, +Player, -Val
 
 
 
-## Computer Move - [ai.pl](project\1/ai.pl) & [utils.pl](project 1/utils.pl)
+## Computer Move - [ai.pl](project1/ai.pl) & [utils.pl](project1/utils.pl)
 
 As for "articial intelligence", we implemented 2 different difficulty levels: 'Easy' and 'Hard'. As mentioned in the section 'Valid Moves', we generate moves using the predicate ``choose_move(+GameState, +Player, +Level, -Move)``. Depending on the selected level, Level will either be 1 (Easy) or 2 (Hard):
 - Easy (Level 1): in this mode the computer will generate random values for both the Row and Column and check wether or not that position is valid (if it's not, it generates the random values again until it finds a valid position).
