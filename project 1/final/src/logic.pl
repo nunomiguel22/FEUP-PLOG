@@ -127,3 +127,16 @@ is_piece_type(Board, Player, [X, Y]) :-
 is_pyramid(Player, Value) :-
     atom_concat(Player, 'P', PlayerP),
     Value == PlayerP.
+
+
+isEmpty([]).
+
+
+valid_moves(Board, Player, ListOfMoves):-
+    findall([Row, Column], (between(1, 10, Row), between(1, 10, Column), is_cell_empty(Board,Row,Column), ListOfMoves).
+    \+isEmpty(ListOfMoves).
+
+valid_moves(_, _, _, _):-
+    write('\nNo moves available'), fail.
+
+    
