@@ -1,5 +1,5 @@
 # PLOG
-## Group: T04_Gekitai5
+## Group: T04_SQU_1
 
 | Name             | Number    | E-Mail                |
 | ---------------- | --------- | --------------------- |
