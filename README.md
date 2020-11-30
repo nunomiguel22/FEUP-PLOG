@@ -280,8 +280,7 @@ The generated move will also be written as output in the format "PC played move 
 
 ## Conclusions
 
-Firstly, the development of this project was extremely time demanding, as Prolog is a completely different programming language, compared to the ones we're used to. However, as weeks went by, our understanding of its syntax and processing improved, which allowed us to develop every functionality required, without bugs or issues being found in the final version of the project. This being said, it's safe to affirm that this project contributed immensely to our learning process in Prolog.
-However, regarding the "artificial intelligence", it feels like some adjustments could have been made in order to reduce the execution time of the move selection, as well as increase the quality of "next move evaluations", this is, looking for guaranteed victories or better positions instead of just checking if there's an upcoming defeat threat. 
+Our project did not meet all of its goals. We had a lot of difficulty in the development, specially since Prolog is extremely different from the programing languages we are used to working with,and also because it's not as commonly used, which means that there is less information and there are less forums online to help us with our doubts. We still notice an improvement in our knowledge of this language and in our confort using it, even though we are not as confortable with it as we should be by this point.
 
 
 
