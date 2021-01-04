@@ -36,7 +36,7 @@ solveUC(NumberOfClasses, UC) :-
     %Evaluate solution and calculate heuristic
     evaluation(List, N),
 
-    labeling([minimize(N), time_out(10000, _)], LabelList),
+    labeling([minimize(N), time_out(5000, _)], LabelList),
     write('/-------------------UC '), write(UC), write('-------------------/'), nl,
     writeClasses(List, 1), nl, nl.
     

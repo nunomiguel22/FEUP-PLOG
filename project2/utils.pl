@@ -23,5 +23,5 @@ writeClasses([], _).
 writeClasses([H|T], N):-
     N1 is N + 1,
     write('Class :'), write(N), nl,
-    write(H), nl, writeUC(T, N1).
+    write(H), nl, writeClasses(T, N1).
 
